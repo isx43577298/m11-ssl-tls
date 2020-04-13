@@ -89,7 +89,7 @@ Getting CA Private Key
 Per a la creació d'un autocertificat, hem de generar com a primera instància la clau privada.
 
 ```
-[gustavo@localhost client1]$ openssl genrsa -out client1key.pem
+[root@192 client1]$ openssl genrsa -out client1key.pem
 Generating RSA private key, 2048 bit long modulus (2 primes)
 .......................................................................+++++
 .........................+++++
@@ -99,7 +99,7 @@ e is 65537 (0x010001)
 Obtinguda la clau privada, generarem el request.
 
 ```
-[gustavo@localhost client1]$ openssl req -new -key client1key.pem -out client1req.pem
+[root@192 client1]# openssl req -new -key client1key.pem -out client1req.pem
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
@@ -124,7 +124,7 @@ An optional company name []:edt
 Per finalitzar, crearem la CA del client1 anomenada ldap.edt.org.
 
 ```
-[gustavo@localhost client1]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client1req.pem -days 365 -sha1 -extfile ext.client.conf -CAcreateserial -out client1cert.pem
+[root@192 client1]# openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client1req.pem -days 365 -sha1 -extfile ext.client.conf -CAcreateserial -out client1cert.pem
 Signature ok
 subject=C = ca, ST = Barcelona, L = Barcelona, O = M11-SAD, OU = Informatica, CN = ldap.edt.org, emailAddress = admin@edt.org
 Getting CA Private Key
@@ -135,7 +135,7 @@ Getting CA Private Key
 Per a la creació d'un autocertificat, hem de generar com a primera instància la clau privada.
 
 ```
-[gustavo@localhost client2]$ openssl genrsa -out client2key.pem
+[root@192 client2]# openssl genrsa -out client2key.pem
 Generating RSA private key, 2048 bit long modulus (2 primes)
 ...........................+++++
 ...............................................................................................+++++
@@ -145,7 +145,7 @@ e is 65537 (0x010001)
 Obtinguda la clau privada, generarem el request.
 
 ```
-[gustavo@localhost client2]$ openssl req -new -key client2key.pem -out client2req.pem
+[root@192 client2]# openssl req -new -key client2key.pem -out client2req.pem
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
 What you are about to enter is what is called a Distinguished Name or a DN.
@@ -170,7 +170,7 @@ An optional company name []:edt
 Per finalitzar, crearem la CA del client2 anomenada ldap.edt.org.
 
 ```
-gustavo@localhost client2]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client2req.pem -days 365 -sha1 -extfile ext.client.conf -CAcreateserial -out client2cert.pem
+[root@192 client2]# openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client2req.pem -days 365 -sha1 -extfile ext.client.conf -CAcreateserial -out client2cert.pem
 Signature ok
 subject=C = ca, ST = Barcelona, L = Barcelona, O = M11-SAD, OU = Informatica, CN = ldap.edt.org, emailAddress = admin@edt.org
 Getting CA Private Key
