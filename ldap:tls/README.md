@@ -1,9 +1,18 @@
 # Ldaperver19:tls
 
-Ldap con conexiones seguras TLS/SSL  y startTLS.
+Gustavo Tello - M11SAD
+Ldap segur
+
+[Imatges docker](https://hub.docker.com/repository/docker/isx43577298/ldapserver19)
+
+```
+# Descarregar imatge
+docker pull isx43577298/ldapserver19:tls
+```
 
 ## Generar cerificats
 ### Generem keys privades
+
 ```
 [gustavo@localhost ldapserver19:tls]$ openssl genrsa -out key_server.pem
 Generating RSA private key, 2048 bit long modulus (2 primes)
@@ -19,6 +28,7 @@ e is 65537 (0x010001)
 ```
 
 ### Generem un certificat propi de l'entitat CA.
+
 ```
 [gustavo@localhost ldapserver19:tls]$ openssl req -new -x509 -nodes -sha1 -days 365 -key key_CA.pem -out certif_CA.pem
 You are about to be asked to enter information that will be incorporated
@@ -38,6 +48,7 @@ Email Address []:admin@edt.org
 ```
 
 ### Generem un certificat request per enviar a l'entitat CA
+
 ```
 [gustavo@localhost ldapserver19:tls]$ openssl req -new -key key_server.pem -out certif_server.pem
 You are about to be asked to enter information that will be incorporated
@@ -98,7 +109,6 @@ TLS_CACERT /etc/openldap/certs/cacrt.pem
 # Afegir al final
 URI ldap://ldap.edt.org
 BASE dc=edt,dc=org
----
 ```
 
 ## Fitxer startup.sh
