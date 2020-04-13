@@ -77,7 +77,7 @@ An optional company name []:edt
 Per finalitzar, crearem la CA del servidor anomenada ldap.edt.org.
 
 ```
-[fedora@ip-172-31-21-40 ~]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in serverreq.pem -days 365 -sha1 -extfile caserver.conf -CAcreateserial -out crt_server.pem
+[fedora@ip-172-31-21-40 ~]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in serverreq.pem -days 365 -sha1 -extfile ext.server.conf -CAcreateserial -out crt_server.pem
 Signature ok
 subject=C = ca, ST = Barcelona, L = Barcelona, O = M11-SAD, OU = Informatica, CN = ldap.edt.org, emailAddress = admin@edt.org
 Getting CA Private Key
@@ -124,7 +124,7 @@ An optional company name []:edt
 Per finalitzar, crearem la CA del client1 anomenada ldap.edt.org.
 
 ```
-[gustavo@localhost client1]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client1req.pem -days 365 -sha1 -extfile caclient1.conf -CAcreateserial -out client1cert.pem
+[gustavo@localhost client1]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client1req.pem -days 365 -sha1 -extfile ext.client.conf -CAcreateserial -out client1cert.pem
 Signature ok
 subject=C = ca, ST = Barcelona, L = Barcelona, O = M11-SAD, OU = Informatica, CN = ldap.edt.org, emailAddress = admin@edt.org
 Getting CA Private Key
@@ -170,7 +170,7 @@ An optional company name []:edt
 Per finalitzar, crearem la CA del client2 anomenada ldap.edt.org.
 
 ```
-gustavo@localhost client2]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client2req.pem -days 365 -sha1 -extfile caclient2.conf -CAcreateserial -out client2cert.pem
+gustavo@localhost client2]$ openssl x509 -CA cacert.pem -CAkey cakey.pem -req -in client2req.pem -days 365 -sha1 -extfile ext.client.conf -CAcreateserial -out client2cert.pem
 Signature ok
 subject=C = ca, ST = Barcelona, L = Barcelona, O = M11-SAD, OU = Informatica, CN = ldap.edt.org, emailAddress = admin@edt.org
 Getting CA Private Key
